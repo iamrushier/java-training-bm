@@ -1,0 +1,75 @@
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+class InputOutput {
+
+    public static void main(String[] args) {
+        IOOperations io = new IOOperations();
+        io.acceptInput();
+        System.out.println(io.bio);
+        // System.out.println("-".repeat(10) + "Your Bio" + "-".repeat(10));
+        // System.out.printf("Fullname:\t%s\n", name);
+        // System.out.printf("Address:\t%s\n", address);
+        // System.out.println("Age:\t\t" + age);
+    }
+
+}
+
+class IOOperations {
+
+    StringBuilder bio;
+
+    IOOperations() {
+        bio = new StringBuilder("");
+    }
+
+    public void acceptInput() {
+        Scanner sc = new Scanner(System.in);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String name;
+        String address = "";
+        int age;
+
+        System.out.printf("Enter your fullname: ");
+        name = sc.nextLine();
+        System.out.print("Enter your address: ");
+        try {
+            address = reader.readLine();
+        } catch (IOException e) {
+            System.out.println("Failed to accept address");
+        }
+
+        System.out.print("Enter your age: ");
+        age = sc.nextInt();
+        sc.close();
+        this.bio.append(name + ";").append(address + ";").append(age + ";");
+
+    }
+
+    public String writeToFile(String fileName) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("bio.txt"));
+            writer.write(this.bio.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+}
+/*
+1. Read for file, if no file, accept details from user
+2. If file, display contents, ask if want to change
+3. Change in loop- Every time, ask whether to save.
+
+Functions:
+1. read file contents
+2. Accept input
+3. write to file
+ */
