@@ -43,6 +43,6 @@ class Employee {
     }
 
     public String getAllDetails() {
-        return String.format("%d.\t%s\t%.2f\t%d", this.id, this.name, this.salary, this.age);
+        return String.format("%d.  %s\t%.2f\t%d", this.id, this.name, this.salary, this.age);
     }
 }
