@@ -9,15 +9,13 @@ import java.io.FileWriter;
 class WriteFileDemo {
 
     public static void main(String[] args) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("files/sample.txt", true));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("files/sample.txt", true))) {
             writer.newLine();
             writer.append("anything");
             System.out.println("Writing to file complete!");
-            writer.close();
         } catch (Exception e) {
             System.out.println("Failed to write to file!");
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }
 }

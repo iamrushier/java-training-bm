@@ -11,16 +11,12 @@ import java.io.IOException;
 class CopyFileDemo {
 
     public static void main(String[] arges) throws IOException {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("files/sample.txt"));
-            BufferedWriter bw = new BufferedWriter(new FileWriter("files/copy.txt"));
+        try (BufferedReader br = new BufferedReader(new FileReader("files/sample.txt")); BufferedWriter bw = new BufferedWriter(new FileWriter("files/copy.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 bw.append(line);
                 bw.newLine();
             }
-            bw.close();
-            br.close();
             System.out.println("File contents copied to copy.txt");
         } catch (FileNotFoundException e) {
             System.out.println("File not found");

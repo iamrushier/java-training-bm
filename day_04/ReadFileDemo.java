@@ -9,8 +9,7 @@ import java.io.IOException;
 class ReadFileDemo {
 
     public static void main(String[] args) {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("files/sample.txt"));
+        try (BufferedReader br = new BufferedReader(new FileReader("files/sample.txt"))) {
             String line;
             System.out.println("Contents of file:");
             while ((line = br.readLine()) != null) {

@@ -8,8 +8,7 @@ class CountWordsInFile {
 
     public static void main(String[] args) {
         int wordCount = 0;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("files/demo.txt"));
+        try (BufferedReader br = new BufferedReader(new FileReader("files/demo.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] words = line.split(" ");

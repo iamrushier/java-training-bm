@@ -25,6 +25,8 @@ class MultiExceptionDemo {
             System.out.printf("Result of division %d / %d = %d", divisor, dividend, result);
         } catch (ArrayIndexOutOfBoundsException | ArithmeticException e) {
             System.out.println("Excpetion occurred: " + e.getMessage());
+        } finally {
+            sc.close();
         }
     }
 }
