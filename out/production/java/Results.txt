@@ -1,0 +1,40 @@
+1. ArrayList demo:
+ a)Employees added: [{1.Ramesh}, {2.Ravi}, {3.Veer}, {4.Prayag}, {5.Jamaal}]
+ b)Removing employee at index 4: {5.Jamaal}
+ c)Before sorting by salary: [{1.Ramesh}, {2.Ravi}, {3.Veer}, {4.Prayag}]
+   After sorting by salary(Asc): [{1.Ramesh}, {3.Veer}, {4.Prayag}, {2.Ravi}]
+ d)Employee with highest salary: {2.Ravi}
+ e)LinkedList<Employee>: [{1.Ramesh}, {3.Veer}, {4.Prayag}, {2.Ravi}]
+
+2. LinkedList demo:
+ a)Employees added: [{1.Ramesh}, {2.Ravi}, {3.Veer}, {4.Prayag}, {5.Jamaal}, {6.John}, {7.Doe}, {8.Smith}, {9.Jane}, {10.Emily}]
+ b)3rd Employee: {3.Veer}
+ c)After replacement: {120.Priya}
+ d)Before removing Jane: [{1.Ramesh}, {2.Ravi}, {120.Priya}, {4.Prayag}, {5.Jamaal}, {6.John}, {7.Doe}, {8.Smith}, {9.Jane}, {10.Emily}]
+   After removing Jane: [{1.Ramesh}, {2.Ravi}, {120.Priya}, {4.Prayag}, {5.Jamaal}, {6.John}, {7.Doe}, {8.Smith}, {10.Emily}]
+
+3. HashSet demo:
+ a)HashSet: [{1.Ramesh}, {2.Ravi}, {3.Veer}, {4.Prayag}, {5.Jamaal}]
+ b)Trying to insert {1.Ramesh}:
+ c)No duplicates in HashSet: [{1.Ramesh}, {2.Ravi}, {3.Veer}, {4.Prayag}, {5.Jamaal}]
+ d)Does {1.Ramesh} exist?: true
+
+4. HashMap demo:
+ a)HashMap: {1={1.Ramesh}, 2={2.Ravi}, 3={3.Veer}, 4={4.Prayag}, 5={5.Jamaal}}
+ b)Employee with ID 3: {3.Veer}
+ c)Removing employee with id 2:
+   HashMap: {1={1.Ramesh}, 3={3.Veer}, 4={4.Prayag}, 5={5.Jamaal}}
+ d)Employee details: 
+ID  Name	Salary		Age
+1.  Ramesh	34000.00	25
+3.  Veer	35000.00	23
+4.  Prayag	38000.00	30
+5.  Jamaal	38000.00	31
+
+5. Stack demo:
+ a)Stack: [{1.Ramesh}, {2.Ravi}, {3.Veer}, {4.Prayag}, {5.Jamaal}]
+ b)Pop: {5.Jamaal}
+   Stack after pop: [{1.Ramesh}, {2.Ravi}, {3.Veer}, {4.Prayag}]
+ c)Peek at stack: {4.Prayag}
+ d)Position of {1.Ramesh} from top: 4
+ e)Is this stack empty: false

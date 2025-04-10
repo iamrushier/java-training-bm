@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/assessment_01/assessment_01.iml" filepath="$PROJECT_DIR$/assessment_01/assessment_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day_01/day_01.iml" filepath="$PROJECT_DIR$/day_01/day_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day_04/day_04.iml" filepath="$PROJECT_DIR$/day_04/day_04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day_05/day_05.iml" filepath="$PROJECT_DIR$/day_05/day_05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day_06_stream_api/day_06_stream_api.iml" filepath="$PROJECT_DIR$/day_06_stream_api/day_06_stream_api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/self-practice/self-practice.iml" filepath="$PROJECT_DIR$/self-practice/self-practice.iml" />
     </modules>
   </component>
 </project>
