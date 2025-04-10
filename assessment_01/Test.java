@@ -53,7 +53,7 @@ public class Test {
             System.out.println("Failed 1");
         }
         try {
-            s1.setMarks(80);
+            s2.setMarks(80);
         } catch (Exception e) {
             System.out.println("Failed 2");
         }

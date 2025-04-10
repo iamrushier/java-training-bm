@@ -26,6 +26,6 @@ public class Test2 {
             sb.append(word + " ");
         }
         System.out.print(sb);
-
+        sc.close();
     }
 }

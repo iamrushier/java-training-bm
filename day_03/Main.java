@@ -16,5 +16,7 @@ class Main {
 
         System.out.println("\n5. Stack demo:");
         CollectionsDemo.demoStack();
+
+
     }
 }
