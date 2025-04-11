@@ -1,0 +1,47 @@
+// Task 5. Use Optional with Enum parsing
+// 1. Write a method that parses a string into an Enum, and return an Optional<EnumType>.
+// Return empty if parsing fails (invalid enum name).
+
+
+import java.util.Optional;
+import java.util.function.Consumer;
+
+
+public class Task5 {
+
+    enum Day {
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY,
+        SUNDAY
+    }
+
+    public static Optional<Day> parseDay(String name) {
+        try {
+            return Optional.of(Day.valueOf(name));
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
+    public static void main(String[] args) {
+        String day1 = "MONDAY";
+        String day2 = "Holiday";
+
+        Optional<Day> result1 = parseDay(day1);
+        Optional<Day> result2 = parseDay(day2);
+
+        Consumer<Day> parsedMsg = day -> System.out.println("Parsed: " + day);
+        Runnable invalidMsg = () -> System.out.println("Invalid day");
+
+        result1.ifPresentOrElse(parsedMsg, invalidMsg);
+        result2.ifPresentOrElse(parsedMsg, invalidMsg);
+    }
+}
+
+// Results:
+// Parsed: MONDAY
+// Invalid day
