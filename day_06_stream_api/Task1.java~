@@ -18,6 +18,9 @@ public class Task1 {
 
         System.out.println("Longest word: " + longest);
 
+        Stream<String> t=words.stream();
+        t.forEach(System.out::println);
+        t.forEach(System.out::println);
     }
 }
 
