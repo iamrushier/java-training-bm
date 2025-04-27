@@ -55,4 +55,13 @@ public class EmployeeService {
     public List<Employee> getEmployeesByDepartment(String department) {
         return employeeRepository.findByDepartmentAndIsDeletedFalse(department);
     }
+
+    // Additional tasks
+    public List<Employee> searchEmployeeByName(String name) {
+        return employeeRepository.findByNameContainingIgnoreCaseAndIsDeletedFalse(name);
+    }
+
+    public List<Employee> getEmployeesWithSalaryGreaterThan(double salary) {
+        return employeeRepository.findBySalaryGreaterThanAndIsDeletedFalse(salary);
+    }
 }

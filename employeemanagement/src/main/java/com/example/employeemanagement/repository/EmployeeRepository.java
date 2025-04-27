@@ -12,4 +12,8 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findByDepartmentAndIsDeletedFalse(String department);
     Page<Employee> findAllByIsDeletedFalse(Pageable pageable);
+
+    List<Employee> findByNameContainingIgnoreCaseAndIsDeletedFalse(String name);
+
+    List<Employee> findBySalaryGreaterThanAndIsDeletedFalse(Double salary);
 }

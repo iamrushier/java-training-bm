@@ -51,4 +51,15 @@ public class EmployeeController {
     public List<Employee> getEmployeesByDepartment(@PathVariable String department) {
         return employeeService.getEmployeesByDepartment(department);
     }
+
+    // Additional Endpoints
+    @GetMapping("/search")
+    public List<Employee> searchEmployees(@RequestParam String name) {
+        return employeeService.searchEmployeeByName(name);
+    }
+
+    @GetMapping("/salary")
+    public List<Employee> getEmployeesWithSalaryGreaterThan(@RequestParam Double salary) {
+        return employeeService.getEmployeesWithSalaryGreaterThan(salary);
+    }
 }
