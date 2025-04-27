@@ -17,9 +17,7 @@ public class BookRepository {
     private JdbcTemplate jdbcTemplate;
 
     public int addBook(Book book) {
-        String sql = "INSERT INTO book (" +
-                "title, author, genre, published_year, available_copies, created_at, updated_at) " +
-                "VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO book (title, author, genre, published_year, available_copies, created_at, updated_at) VALUES (?,?,?,?,?,?,?)";
         LocalDateTime now = LocalDateTime.now();
         return jdbcTemplate.update(sql,
                 book.getTitle(),
@@ -42,23 +40,30 @@ public class BookRepository {
         return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Book.class), id);
     }
 
-    // Need to debug
     public int updateBook(Long id, Book book) {
-        String sql = "UPDATE book SET title=?, author=?, genre=?, published_year=?, available_copies=?,updated_at=? WHERE id=?";
-        return jdbcTemplate.update(sql,
-                book.getTitle(),
-                book.getAuthor(),
-                book.getGenre(),
-                book.getPublishedYear(),
-                book.getAvailableCopies(),
-                Timestamp.valueOf(LocalDateTime.now()),
-                id
-        );
+        Book existingBook = getBookById(id);
+        if (existingBook != null) {
+            String sql = "UPDATE book SET title=?, author=?, genre=?, published_year=?, available_copies=?,updated_at=? WHERE id=?";
+            String title = book.getTitle() != null ? book.getTitle() : existingBook.getTitle();
+            String author = book.getAuthor() != null ? book.getAuthor() : existingBook.getAuthor();
+            String genre = book.getGenre() != null ? book.getGenre() : existingBook.getGenre();
+            Integer publishedYear = book.getPublishedYear() != null ? book.getPublishedYear() : existingBook.getPublishedYear();
+            Integer availableCopies = book.getAvailableCopies() != null ? book.getAvailableCopies() : existingBook.getAvailableCopies();
+            return jdbcTemplate.update(sql,
+                    title,
+                    author,
+                    genre,
+                    publishedYear,
+                    availableCopies,
+                    Timestamp.valueOf(LocalDateTime.now()),
+                    id
+            );
+        } else return 0;
     }
 
-    public int deleteBook(Long id){
+    public int deleteBook(Long id) {
         String sql = "DELETE FROM book WHERE id=?";
-        return jdbcTemplate.update(sql,id);
+        return jdbcTemplate.update(sql, id);
     }
 
 
