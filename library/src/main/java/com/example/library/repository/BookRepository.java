@@ -1,0 +1,65 @@
+package com.example.library.repository;
+
+import com.example.library.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Repository
+public class BookRepository {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    public int addBook(Book book) {
+        String sql = "INSERT INTO book (" +
+                "title, author, genre, published_year, available_copies, created_at, updated_at) " +
+                "VALUES (?,?,?,?,?,?,?)";
+        LocalDateTime now = LocalDateTime.now();
+        return jdbcTemplate.update(sql,
+                book.getTitle(),
+                book.getAuthor(),
+                book.getGenre(),
+                book.getPublishedYear(),
+                book.getAvailableCopies(),
+                Timestamp.valueOf(now),
+                Timestamp.valueOf(now)
+        );
+    }
+
+    public List<Book> getAllBooks() {
+        String sql = "SELECT * FROM book";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Book.class));
+    }
+
+    public Book getBookById(Long id) {
+        String sql = "SELECT * FROM book WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Book.class), id);
+    }
+
+    // Need to debug
+    public int updateBook(Long id, Book book) {
+        String sql = "UPDATE book SET title=?, author=?, genre=?, published_year=?, available_copies=?,updated_at=? WHERE id=?";
+        return jdbcTemplate.update(sql,
+                book.getTitle(),
+                book.getAuthor(),
+                book.getGenre(),
+                book.getPublishedYear(),
+                book.getAvailableCopies(),
+                Timestamp.valueOf(LocalDateTime.now()),
+                id
+        );
+    }
+
+    public int deleteBook(Long id) {
+        String sql = "DELETE FROM book WHERE id=?";
+        return jdbcTemplate.update(sql, id);
+    }
+
+
+}
