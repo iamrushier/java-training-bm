@@ -1,0 +1,22 @@
+package com.example.mail_send_demo;
+
+import com.example.mail_send_demo.service.MailSenderService;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class SendEmailTest {
+    @Autowired
+    private MailSenderService service;
+
+    @Test
+    void sendEmailTest(){
+        service.sendEmail("t210256@famt.ac.in","Testing","This is a test email");
+    }
+
+    void sendEmailWithTemplateTest(){
+        System.out.println("Sending template email");
+        service.sendEmailWithTemplate("t210256@famt.ac.in","Thymeleaf Demo","This will be shown in HTML styling");
+    }
+}

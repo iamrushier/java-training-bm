@@ -1,0 +1,6 @@
+package com.example.mail_send_demo;
+
+public interface IMailSenderService {
+    void sendEmail(String to,String subject, String message);
+    void sendEmailWithTemplate(String to,String subject, String message);
+}
