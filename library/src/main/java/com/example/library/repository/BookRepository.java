@@ -57,7 +57,8 @@ public class BookRepository {
             return ps;
         }, keyholder);
 
-        Long generatedId = Objects.requireNonNull(keyholder.getKey()).longValue();
+//        Long generatedId = Objects.requireNonNull(keyholder.getKey()).longValue();
+        Long generatedId = (Long) keyholder.getKey();
         return getBookById(generatedId);
     }
 
