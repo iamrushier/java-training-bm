@@ -1,0 +1,17 @@
+package com.example.feign_demo.client;
+
+import com.example.feign_demo.dto.PostDTO;
+import com.example.feign_demo.dto.UserDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+
+@FeignClient(name = "apiClient", url = "https://jsonplaceholder.typicode.com")
+public interface FeignApiClient {
+    @GetMapping("/posts")
+    List<PostDTO> getPosts();
+
+    @GetMapping("/users")
+    List<UserDTO> getUsers();
+}

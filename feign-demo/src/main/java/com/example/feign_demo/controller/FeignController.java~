@@ -2,6 +2,7 @@ package com.example.feign_demo.controller;
 
 import com.example.feign_demo.client.PostClient;
 import com.example.feign_demo.dto.PostDTO;
+import com.example.feign_demo.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,5 +20,10 @@ public class PostController {
     @GetMapping("/posts")
     public List<PostDTO> getPosts(){
         return postClient.getPosts();
+    }
+
+    @GetMapping("/users")
+    public List<UserDTO> getUsers(){
+        return postClient.getUsers();
     }
 }
